@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity{
         mCrispsCheck=findViewById(R.id.checkbox3);
         mYogurtCheck=findViewById(R.id.checkbox4);
 
-        textView=findViewById(R.id.textview);
+
         mResult=new ArrayList<>();
         textView.setEnabled(false);
         btn2 = findViewById(R.id.button2);
@@ -59,8 +60,12 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
+    public void goToNextActivity(View view) {
 
-
-
+        Intent intent= new Intent(this,Activity.class);
+        TextView textView=(TextView)findViewById(R.id.text);
+        intent.putExtra("Name",textView.getText().toString());
+        startActivity(intent);
+    }
 }
 
